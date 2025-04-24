@@ -294,6 +294,9 @@ header .btn-hamburger .material-symbols-outlined {
   display: flex;
   justify-content: space-evenly;   /* 각 요소들의 여백을 동일하게 */
   text-align: center;
+  /* 창이 줄어들면(정렬할 공간이 부족하면) 다음 줄로 내려가게 정렬됨 */
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* 하위 선택자가 아닌 자식 선택자 쓴 것에 유의! */
@@ -601,7 +604,7 @@ footer .copyright {
     transition: 0.3s;
     overflow: hidden; 
   }
-  
+
   header nav.active {
     height: 100%;
   }
@@ -625,6 +628,58 @@ footer .copyright {
     letter-spacing: 10px;
   }
 
+  .about {
+    padding: 100px 0;
+  }
+
+  .about .about__wrapper {
+    flex-direction: column;
+  }
+
+  .about .about__wrapper .about__img {
+    width: 100%;
+  }
+
+  .about .about__wrapper .about__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .skill {
+    padding: 100px 0;
+  }
+
+  .project {
+    padding: 100px 0;
+  }
+
+  .project .port {
+    flex-direction: column;
+    margin: 40px 0;
+  }
+
+  .project .port .port__img,
+  .project .port .port__text {
+    width: 100%;
+  }
+
+  .project .port .port__text {
+    padding: 20px 0 0;
+  }
+
+  .contact {
+    padding: 100px 0;
+
+  }
+
+  #modal .modal-content,
+  #imageModal .modal-content {
+    width: 80%;
+  }
+
+  #imageModal .modal-body img {
+    width: 100%;
+  }
 
 }
 

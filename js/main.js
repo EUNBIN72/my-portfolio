@@ -151,7 +151,6 @@ btnHamburger.addEventListener('click', function () {
   navEl.classList.toggle('active');
 });
 
-// 
 
 // a 태그를 눌렀을 때 햄버거 버튼 끔
 // 반복적으로 꺼내오는 기능 : for each
