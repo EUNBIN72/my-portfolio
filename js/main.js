@@ -137,10 +137,25 @@ window.addEventListener('scroll', function () {
 
 
 
+// 모바일용 메뉴
+const btnHamburger = document.querySelector('.btn-hamburger');
+const navEl = document.querySelector('header nav');
+const menuItems = document.querySelectorAll('header nav ul li a');
+
+btnHamburger.addEventListener('click', function () {
+//   if (navEl.classList.contains('active')) {
+//     navEl.classList.remove('active');
+//   } else {
+//     navEl.classList.add('active');
+//   }
+  navEl.classList.toggle('active');
+});
 
 
-
-
-
-
-
+// a 태그를 눌렀을 때 햄버거 버튼 끔
+// 반복적으로 꺼내오는 기능 : for each
+menuItems.forEach(function (menuItems) {
+  menuItems.addEventListener('click', function () {
+    navEl.classList.remove('active');
+  });
+});
