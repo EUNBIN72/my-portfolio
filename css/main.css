@@ -752,6 +752,19 @@ footer .copyright {
     width: 100%;
   }
 
+  #to-top {
+    bottom: 40px;
+    right: 40px;
+  }
+
+  footer {
+    font-size: 15px;
+  }
+
+  footer .copyright {
+    font-size: 15px;
+    
+  }
 
 }
 
