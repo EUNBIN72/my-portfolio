@@ -1,5 +1,5 @@
 // ScrollMagic 사용
-const spyEls = document.querySelectorAll('section.scroll-spy');
+const spyEls = document.querySelectorAll('.scroll-spy');
 console.log(spyEls);
 
 const controller = new ScrollMagic.Controller();
@@ -13,36 +13,15 @@ spyEls.forEach(function (spyEl) {
   .addTo(controller);  // 컨트롤러에 장면을 할당(필수!) - 라이브러리에서 지정한 문법으로 깊게 이해X
 });
 
-// Swiper 사용
-const swiper = new Swiper('.project .swiper', {
-  // 슬라이드 옵션 지정
-  // direction: 'vertical',  // 수직 슬라이드
-  direction: 'horizontal',  // 수평 슬라이드(기본값)
-  loop: true,  // 반복 재생 여부, 1 -> 2 -> 3 -> 다시 1
-  autoplay : { // 자동 재생 여부
-    delay: 5000  // 5초마다 슬라이드 바뀜(기본값 : 3000(3초))
-  },
 
-  // 페이지네이션 옵션 
-  pagination: {
-    el: '.project .swiper-pagination',
-    clickable: true  // 사용자의 페이지네이션 요소 제어 가능 여부
-  },
-
-  // 이전/다음 슬라이드 버튼 옵션
-  navigation: {
-    nextEl: '.project .swiper-button-next',
-    prevEl: '.project .swiper-button-prev',
-  },
-});
 
 // 모달창 띄우기
-const modalBtn = document.querySelector('.project .btn-modal');
+const modalBtns = document.querySelectorAll('#projects .btn-modal');
 const modalEl = document.querySelector('#modal');
 const closeEl = document.querySelector('#modal .btn-close');
 
 
-const imageModalBtnList = document.querySelectorAll('.project .btn-modal-image');
+const imageModalBtnList = document.querySelectorAll('#projects .btn-modal-image');
 const imageModalEl = document.querySelector('#imageModal');
 const imageCloseBtn = document.querySelector('#imageModal .btn-close');
 const imageEl = document.querySelector('#imageModal img');
@@ -51,11 +30,13 @@ const imageEl = document.querySelector('#imageModal img');
 // Quiz: modalBtn 누르면 모달창이 뜨고 closeBtn 누르면 닫히도록 만들기
 // style 속성: JS로 CSS 스타일을 제어할 수 있는 속성
 // 예시 : 요소.style.css속성 = "";
+modalBtns.forEach(function (modalBtn) {
 modalBtn.addEventListener("click", function () {
   modalEl.style.display = 'flex';
 });
 closeEl.addEventListener("click", function () {
   modalEl.style.display = 'none';
+});
 });
 
 
@@ -134,6 +115,22 @@ window.addEventListener('scroll', function () {
     toTopEl.style.transform = 'translate(100px)';
   }
 });
+
+
+
+// visual 타이핑 애니메이션 적용
+const content  = "안녕하세요. \n Full Stack 개발자 고은빈입니다.";
+const text = document.querySelector(".text");
+let i = 0;
+
+function typing() {
+  let txt = content[i++];
+  text.innerHTML += txt=== "\n" ? "<br/>": txt;
+  if (i > content.length) {
+    text.textContent = "";
+    i=0;
+  }
+} setInterval(typing, 100)
 
 
 
